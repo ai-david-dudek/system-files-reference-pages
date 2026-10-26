@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muse System Files Reference</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5;color:#111;max-width:900px;margin:0 auto;padding:1rem;background:#fff}
+h1{font-size:1.6rem} h2{font-size:1.25rem;margin-top:2rem} h3{font-size:1.05rem}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.95em;background:#f2f2f2;padding:.1em .25em;border-radius:3px}
+.legend{border:1px solid #ccc;border-radius:6px;padding:.75rem 1rem;background:#fafafa}
+.badge{display:inline-block;font-size:.8rem;font-weight:600;border-radius:999px;padding:.1em .6em;margin-left:.35em;white-space:nowrap;color:#fff}
+.badge.editable{background:#1a7f37}.badge.careful{background:#9a6700}.badge.do-not{background:#b42318}
+.flag{display:inline-block;font-size:.75rem;border:1px solid #888;border-radius:999px;padding:.05em .5em;margin-left:.35em;color:#333;background:#fff}
+.controls{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+.controls input[type=search]{flex:1 1 220px;padding:.5rem}
+.controls select,.controls button{padding:.5rem .75rem}
+details{border-left:3px solid #ddd;margin:.5rem 0 .5rem .25rem;padding-left:.75rem}
+details summary{cursor:pointer;font-weight:600}
+.node{margin:.5rem 0}
+.node p{margin:.25rem 0}
+.path{font-weight:600}
+.muted{color:#555}
+.hidden-node{display:none !important}
+@media print{body{max-width:none}.controls{display:none}details{border-left:1px solid #999}details summary{list-style:none}}
+</style>
+</head>
+<body>
+<h1>Muse System Files Reference</h1>
+<p class="muted">Snapshot as of: 2026-10-25. Generic reference only. Your tree may be a subset; folders appear as features are used; runtime folders may vary by deployment.</p>
+<p>This page mirrors the home directory of a Muse instance, the area shown as “System Files” in the Muse app. System Files is a window into Muse’s own filesystem, not files on your device. This page describes purpose and expected contents at folder and file level only. It does not list file contents, and it does not name any real person, group, project, goal, or chat.</p>
+<p><strong>How to read this page:</strong> Markdown (<code>.md</code>) files are prose or notes meant to be read, and, where the tier allows, edited by a person. YAML (<code>.yaml</code>) and JSON (<code>.json</code>) files are structured settings or state meant to be read by software; hand-editing them can break the thing that reads them.</p>
+<div class="legend" aria-label="Edit tier legend">
+<p><strong>Legend — edit tier (colour plus shape plus text, never colour alone):</strong></p>
+<p><span class="badge editable">● Editable</span> You are the intended author or owner. Hand-editing is expected and safe, within the file’s own rules.</p>
+<p><span class="badge careful">◐ Edit via Muse</span> Muse maintains the file. Give corrections in conversation so Muse can reconcile them with background jobs and other records. Hand-editing can be overwritten or left inconsistent.</p>
+<p><span class="badge do-not">■ Do not edit</span> Runtime-managed, generated, system-provided, or private. Hand-editing risks breaking a job, losing state, or exposing a secret.</p>
+<p><span class="flag">Filesystem only</span> Exists in the home directory but may not appear in the System Files browser. <span class="flag">Appears when used</span> The folder only exists once the corresponding feature has been used.</p>
+</div>
+<div class="controls">
+<input type="search" id="q" placeholder="Search paths, purposes, and contents…" aria-label="Search this reference">
+<select id="tier" aria-label="Filter by edit tier">
+<option value="all">All edit tiers</option>
+<option value="editable">Editable only</option>
+<option value="careful">Edit via Muse only</option>
+<option value="do-not">Do not edit only</option>
+</select>
+<button type="button" id="expandAll">Expand all</button>
+<button type="button" id="collapseAll">Collapse all</button>
+</div>
+<noscript><p><strong>Note:</strong> JavaScript is off, so search, filtering, and collapse buttons are unavailable. All content below is shown expanded and remains readable.</p></noscript>
+
+<h2>Home directory — root files</h2>
+<div class="node" data-tier="careful"><p><span class="path"><code>AGENTS.md</code></span> <span class="badge careful">◐ Edit via Muse</span></p><p>Purpose: Muse’s operating manual for this workspace — conventions, durable lessons, and tool quirks learned here. Expected contents: workspace conventions and lessons worth keeping for future sessions. Not about the user; about how work gets done here. New entries are added only on the user’s say-so, not as a side effect of discussion.</p></div>
+<div class="node" data-tier="editable"><p><span class="path"><code>SOUL.md</code></span> <span class="badge editable">● Editable</span></p><p>Purpose: Persona and tone — who Muse is in this instance, how it speaks, and what standards it holds itself to. Expected contents: persona description, tone guidance, and retained capabilities the user has asked Muse to keep. Changes here change how Muse presents itself, so they are user decisions.</p></div>
+<div class="node" data-tier="editable"><p><span class="path"><code>IDENTITY.md</code></span> <span class="badge editable">● Editable</span></p><p>Purpose: Identity facts in short form. Expected contents: name, character, vibe, and signature emoji, if any. The short-form counterpart to <code>SOUL.md</code>.</p></div>
+<div class="node" data-tier="editable"><p><span class="path"><code>USER.md</code></span> <span class="badge editable">● Editable</span></p><p>Purpose: Who the user is. Expected contents: name, what to call them, timezone, and context the user has shared about what they care about and how they work.</p></div>
+<div class="node" data-tier="careful"><p><span class="path"><code>MEMORY.md</code></span> <span class="badge careful">◐ Edit via Muse</span></p><p>Purpose: Curated long-term memory. Expected contents: durable facts, preferences, decisions, commitments, and boundaries, organised under headings. Not a transcript, not a transaction log, and not a copy of a todo list. Routine progress and diagnostics do not belong here.</p></div>
+<div class="node" data-tier="careful"><p><span class="path"><code>PROACTIVE_PREFERENCES.md</code></span> <span class="badge careful">◐ Edit via Muse</span></p><p>Purpose: The user’s preferences about proactive messages. Expected contents: what, if anything, Muse may surface unasked, and when. A one-time dismissal is not a permanent opt-out unless the user says so.</p></div>
+<div class="node" data-tier="careful"><p><span class="path"><code>TOOLS.md</code></span> <span class="badge careful">◐ Edit via Muse</span></p><p>Purpose: Local tool notes. Expected contents: device names, host aliases, and environment-specific quirks that make tool use reliable in this setup. Not a skill; a local supplement to skills.</p></div>
+<div class="node" data-tier="careful"><p><span class="path"><code>HEARTBEAT.md</code></span> <span class="badge careful">◐ Edit via Muse</span> <span class="flag">Appears when used</span></p><p>Purpose: Recurring checks for the heartbeat worker — one check per line, picked up on the next tick. Expected contents: a short checklist, often an empty template in a fresh instance. In instances with a heartbeat enabled, the worker runs on a regular schedule and executes this checklist. If your instance has no heartbeat, you may not see this file.</p></div>
+
+<h2>Standard directories</h2>
+<details open class="node" data-tier="do-not"><summary><code>docs/</code> <span class="badge do-not">■ Do not edit</span></summary><p>Purpose: Product documentation for Muse — how skills, connectors, scheduling, artifacts, and related surfaces work. Expected contents: reference documents maintained by the product team. System-provided and replaced on deployment. Read-only reference; do not edit, and do not treat it as the user’s own writing.</p></details>
+<details open class="node" data-tier="do-not"><summary><code>config/</code> <span class="badge do-not">■ Do not edit</span> <span class="flag">Filesystem only</span></summary><p>Purpose: Settings and runtime state for the Muse instance. Expected contents: <code>home.yaml</code> (home-level settings), <code>skills.yaml</code> (preferred skills and connectors for kinds of task), <code>workspace-state.json</code> and related state files, and runtime bookkeeping files. Contents are managed by the app and by Muse’s own settings actions, not by hand-editing.</p></details>
+<details open class="node" data-tier="careful"><summary><code>memory/</code> <span class="badge careful">◐ Edit via Muse</span></summary>
+<p>Purpose: Muse’s memory store — the dated record behind the curated summary in <code>MEMORY.md</code>, plus the people and groups Muse knows about.</p>
+<div class="node" data-tier="careful"><p><span class="path"><code>memory/YYYY-MM-DD.md</code></span> <span class="badge careful">◐ Edit via Muse</span></p><p>Expected contents: dated daily notes — what was learned or decided on that date, in dated form.</p></div>
+<div class="node" data-tier="careful"><p><span class="path"><code>memory/people/</code></span> <span class="badge careful">◐ Edit via Muse</span></p><p>Pattern folder. Expected contents: <code>INDEX.md</code>, listing every person page, closest to the user first, plus one <code>&lt;person&gt;.md</code> file per person, holding the relationship and durable facts the user stated. No real person is named in this reference; this entry explains the pattern.</p></div>
+<div class="node" data-tier="careful"><p><span class="path"><code>memory/groups/</code></span> <span class="badge careful">◐ Edit via Muse</span></p><p>Pattern folder, as for people. Expected contents: <code>INDEX.md</code> plus one <code>&lt;group&gt;.md</code> per group or community, holding the user’s role and context for that group.</p></div>
+<div class="node" data-tier="do-not"><p><span class="path"><code>memory/bank/</code> and <code>memory/index/</code></span> <span class="badge do-not">■ Do not edit</span></p><p>Expected contents: runtime-managed memory storage. Readable for diagnosis, never edited directly.</p></div>
+</details>
+<details open class="node" data-tier="do-not"><summary><code>dreams/</code> <span class="badge do-not">■ Do not edit</span></summary>
+<p>Purpose: Nightly self-improvement material — how Muse maintains coherence and alignment with the user over time.</p>
+<div class="node" data-tier="do-not"><p><span class="path"><code>dreams/YYYY-MM-DD.md</code></span> <span class="badge do-not">■ Do not edit</span></p><p>Expected contents: dated self-improvement notes from nightly background processes.</p></div>
+<div class="node" data-tier="do-not"><p><span class="path"><code>dreams/alignment/derived/ALIGNMENT_SYNTHESIS.md</code></span> <span class="badge do-not">■ Do not edit</span></p><p>Expected contents: a derived synthesis of how Muse and the user relate, built from past interaction by a background pass. It is a summary, not the source of truth, and it changes as new material is derived. Do not edit it as if editing it changes the underlying history.</p></div>
+<div class="node" data-tier="do-not"><p><span class="path"><code>dreams/alignment/raw/</code> and <code>dreams/alignment/repair/</code></span> <span class="badge do-not">■ Do not edit</span></p><p>Expected contents: raw and repair material behind the derived summaries. Runtime-managed.</p></div>
+</details>
+<details open class="node" data-tier="editable"><summary><code>workspace/</code> <span class="badge editable">● Editable</span></summary>
+<p>Purpose: The working area. Everything Muse creates or works on lives under here, except the root identity and memory files above.</p>
+<div class="node" data-tier="editable"><p><span class="path"><code>workspace/your_files/</code></span> <span class="badge editable">● Editable</span></p><p>Expected contents: user-facing deliverables — documents, files, and project subfolders the user is meant to see and download. Files placed here show up in the Library. Project subfolders under here are a pattern (<code>&lt;project&gt;/</code>), not system folders.</p></div>
+<div class="node" data-tier="careful"><p><span class="path"><code>workspace/goals/&lt;goal-slug&gt;/</code></span> <span class="badge careful">◐ Edit via Muse</span> <span class="flag">Appears when used</span></p><p>Pattern folder, one per goal. Expected contents: <code>GOAL.md</code> (Muse’s own notes on the goal, not a document for the user); <code>files/</code> (documents for the user that support that goal, written there from the first write, not copied in afterwards); <code>hidden_files/</code> (internal bookkeeping — run logs, watermarks, seen lists, source snapshots, and other state the user should not see as goal documents). The <code>files/</code> part is user-facing; <code>GOAL.md</code> and <code>hidden_files/</code> are Muse’s working notes and state.</p></div>
+<div class="node" data-tier="editable"><p><span class="path"><code>workspace/user/</code></span> <span class="badge editable">● Editable</span></p><p>Expected contents: material the user handed Muse to keep — <code>files/</code> (uploaded or handed-over files), <code>media_library/</code> (uploaded photos and media), and <code>reference/</code> (reference documents the user asked Muse to keep). Uploads land here and persist; they do not automatically appear in the Library.</p></div>
+<div class="node" data-tier="editable"><p><span class="path"><code>workspace/custom-skills/&lt;skill-name&gt;/</code></span> <span class="badge editable">● Editable</span> <span class="flag">Appears when used</span></p><p>Pattern folder, one per user-created skill. Expected contents: a <code>SKILL.md</code> playbook and any supporting files that skill needs.</p></div>
+<div class="node" data-tier="careful"><p><span class="path"><code>workspace/custom-connectors/custom.&lt;provider&gt;/</code></span> <span class="badge careful">◐ Edit via Muse</span> <span class="flag">Appears when used</span></p><p>Pattern folder, one per user-created connector. Expected contents: <code>connector.yaml</code>, <code>CONNECTOR.md</code>, and helper scripts. Credentials are not stored in these files; they go through the secure connection flow.</p></div>
+<div class="node" data-tier="do-not"><p><span class="path"><code>workspace/system/system_prompt.md</code></span> <span class="badge do-not">■ Do not edit</span></p><p>Expected contents: a copy of the main chat’s system prompt, saved at startup. A reference copy, not a live control — editing it does not change the running system prompt.</p></div>
+<div class="node" data-tier="do-not"><p><span class="path"><code>workspace/</code> — other working folders</span> <span class="badge do-not">■ Do not edit</span> <span class="flag">Filesystem only</span></p><p>Expected contents: runtime and working folders for Muse’s own machinery (agents, scheduling, skills, feed, voice, and similar). Grouped here as a category, not enumerated, because they vary by deployment. Do not treat them as user projects. Project folders the user recognises belong under <code>your_files/</code> or under <code>goals/&lt;goal-slug&gt;/files/</code>, as above.</p></div>
+</details>
+<details open class="node" data-tier="careful"><summary><code>side-chats/&lt;chat-id&gt;/</code> <span class="badge careful">◐ Edit via Muse</span> <span class="flag">Appears when used</span></summary><p>Pattern folder, one per side chat. The folder name is a chat ID, not a title. Expected contents: that chat’s continuity files, including its memory file and its discretion rules (what may be shared, offered, discussed, or done in that chat, including the user’s own rules for it). Side-chat titles are not listed in this reference; the point is the structure, not an inventory of chats.</p></details>
+<details open class="node" data-tier="do-not"><summary><code>.ssh/</code> <span class="badge do-not">■ Do not edit</span> <span class="flag">Filesystem only</span></summary><p>Purpose: Persistent SSH configuration and keys. Expected contents: SSH configuration and key pairs. Private keys live here and must never be exposed, copied into chat, memory, or ordinary files, or shared. This entry explains that the folder exists and why it is private; it does not list key contents.</p></details>
+<div class="node" data-tier="do-not"><p><span class="path">Other dot-directories and runtime files</span> <span class="badge do-not">■ Do not edit</span> <span class="flag">Filesystem only</span></p><p>Examples: cache, local configuration, lock files, data, hooks, prompts, and subscription state. Expected contents: runtime-managed files and folders, not user content. Grouped as a category here, not promised as an exhaustive list, because runtime folders vary by deployment.</p></div>
+
+<h2>What this reference does not do</h2>
+<ul>
+<li>Name any real person, group, project, goal, chat, uploaded file, or custom skill or connector.</li>
+<li>Give counts derived from one instance, or copy example contents from any real memory, people, group, daily-log, or dream file.</li>
+<li>Present a deployment-specific or unverified file as universal. Where universality cannot be verified, this page says “may vary by deployment” or “appears when used”.</li>
+<li>Present the System Files browser as if it were the whole home directory. The browser is a window into the filesystem, and some areas are filesystem-only, as flagged above.</li>
+</ul>
+<p class="muted">End of generic reference. For a personal version with your own projects and goals, use the personal page built from the same tree, kept private and unpublished.</p>
+<script>
+(function(){
+var q=document.getElementById('q'), tier=document.getElementById('tier');
+var nodes=Array.prototype.slice.call(document.querySelectorAll('.node'));
+function apply(){
+var query=(q.value||'').toLowerCase().trim(), t=tier.value;
+nodes.forEach(function(n){
+var text=n.textContent.toLowerCase();
+var okQ=!query||text.indexOf(query)>-1;
+var okT=(t==='all')||(n.getAttribute('data-tier')===t)||n.querySelector('[data-tier="'+t+'"]');
+var show=okQ&&okT;
+n.classList.toggle('hidden-node',!show);
+});
+}
+q.addEventListener('input',apply); tier.addEventListener('change',apply);
+document.getElementById('expandAll').addEventListener('click',function(){
+document.querySelectorAll('details').forEach(function(d){d.open=true;});
+});
+document.getElementById('collapseAll').addEventListener('click',function(){
+document.querySelectorAll('details').forEach(function(d){d.open=false;});
+});
+})();
+</script>
+</body>
+</html>
