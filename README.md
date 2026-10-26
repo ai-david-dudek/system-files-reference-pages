@@ -10,6 +10,14 @@ not contain any one user's file contents.
 
 ## How to use it
 
+Live site: https://ai-david-dudek.github.io/system-files-reference-pages/
+
+Markdown version, readable in this repository view:
+[reference.md](reference.md) — the same generic tree, with
+collapsible sections and a tier index. It has no live search or
+tier filter; use your browser's find function, or open `index.html`
+for search and filtering.
+
 Open `index.html` in a browser. No server, database, or other
 technology is required. The page is a single HTML file with all CSS
 and JavaScript inline, and it makes no external requests.
